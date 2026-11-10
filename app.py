@@ -6,19 +6,11 @@ from agent.controller import SmartFuzzyAgent
 from agent.fuzzy_engine import temperature_membership
 
 
-# ============================================================
-# PAGE SETTINGS
-# ============================================================
-
 st.set_page_config(
     page_title="Fuzzy Logic Fan Controller",
     layout="wide"
 )
 
-
-# ============================================================
-# TITLE
-# ============================================================
 
 st.title("Fuzzy Logic Based Fan Speed Controller")
 
@@ -29,16 +21,10 @@ st.write(
 )
 
 
-# ============================================================
-# CREATE AGENT
-# ============================================================
-
 agent = SmartFuzzyAgent()
 
 
-# ============================================================
-# ROOM CONDITIONS
-# ============================================================
+
 
 st.header("Room Conditions")
 
@@ -63,9 +49,6 @@ with col2:
     )
 
 
-# ============================================================
-# ANALYZE
-# ============================================================
 
 if st.button("Calculate Fan Speed"):
 
@@ -74,9 +57,6 @@ if st.button("Calculate Fan Speed"):
         humidity
     )
 
-    # ========================================================
-    # AGENT DECISION
-    # ========================================================
 
     st.header("Agent Decision")
 
@@ -104,34 +84,22 @@ if st.button("Calculate Fan Speed"):
         )
 
 
-    # ========================================================
-    # FAN CATEGORY
-    # ========================================================
 
     st.success(
         f"Fan Category: {result['category']}"
     )
 
 
-    # ========================================================
-    # EXPLANATION
-    # ========================================================
+
 
     st.info(
         result["explanation"]
     )
-
-
-    # ========================================================
-    # FUZZIFICATION
-    # ========================================================
-
     st.header("Fuzzification")
 
     col1, col2 = st.columns(2)
 
 
-    # ---------------- TEMPERATURE ----------------
 
     with col1:
 
@@ -152,8 +120,6 @@ if st.button("Calculate Fan Speed"):
             )
 
 
-    # ---------------- HUMIDITY ----------------
-
     with col2:
 
         st.subheader("Humidity Membership")
@@ -173,9 +139,6 @@ if st.button("Calculate Fan Speed"):
             )
 
 
-    # ========================================================
-    # RULES FIRED
-    # ========================================================
 
     st.header("Rules Fired")
 
@@ -204,10 +167,6 @@ if st.button("Calculate Fan Speed"):
             "No rule was fired."
         )
 
-
-    # ========================================================
-    # FAN OUTPUT MEMBERSHIP
-    # ========================================================
 
     st.header("Fan Speed Membership")
 
@@ -239,9 +198,6 @@ if st.button("Calculate Fan Speed"):
         )
 
 
-    # ========================================================
-    # TEMPERATURE GRAPH
-    # ========================================================
 
     st.header("Temperature Membership Functions")
 
@@ -317,9 +273,6 @@ if st.button("Calculate Fan Speed"):
     st.pyplot(fig, use_container_width=False)
 
 
-    # ========================================================
-    # FINAL DECISION
-    # ========================================================
 
     st.header("Final Decision")
 
